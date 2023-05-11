@@ -15,8 +15,8 @@ class Posting extends CI_Controller
     public function index()
     {
         $data = [
-          'title'       => 'Posting',
-          'berita'    => $this->db->get('berita ')->result_array()  
+            'title'       => 'Posting',
+            'berita'    => $this->db->get('berita ')->result_array()
         ];
         $this->template->load('template', 'posting/data', $data);
     }
@@ -32,11 +32,49 @@ class Posting extends CI_Controller
 
         $data = [
             'title'         => 'Add berita',
-            'kategori'      => $this->base_model->getOrder('kategori')->result(),
+            'kategori'      => $this->base_model->get('kategori')->result(),
             'input'         => $input
         ];
 
         $this->template->load('template', 'posting/add', $data);
+    }
+
+    public function prosesAdd()
+    {
+        $post = $this->input->post(null, true);
+
+        var_dump($post);
+
+        // $gambar = $this->upload->data();
+        // $gambar =  $gambar['file_name'];
+        $judul = $this->input->post('judul');
+        $seo = slugify($this->input->post('judul'));
+        $konten = $this->input->post('konten');
+        $featured = $this->input->post('featured');
+        $id_user = userdata('id_user');
+        $id_kartikel = $this->input->post('kategori');
+        $isActive = 1;
+        $date = date('Y-m-d');
+
+        // $params = [
+        //     'judul' => $judul,
+        //     'seo_judul' => $seo,
+        //     'konten' => $konten,
+        //     'featured' => $featured,
+        //     'gambar_name' => $gambar,
+        //     'id_kartikel' => $id_kartikel,
+        //     'isActive' => $isActive,
+        //     'user' => $id_user,
+        //     'date' => $date
+        // ];
+
+        // $this->db->add('berita', $params);
+        
+        // if ($this->db->affected_rows() > 0) {
+        //     set_pesan('Data berhasil di');
+        // } else {
+        //     set_pesan('Terjadi Kesalahan saat menyimpan', FALSE);
+        // }
     }
 
     public function edit($id)
@@ -57,7 +95,7 @@ class Posting extends CI_Controller
 
         redirect('posting');
     }
-    
+
     public function delete($id)
     {
         $this->base->del('posting', ['id_posting' => $id]);
@@ -69,7 +107,6 @@ class Posting extends CI_Controller
         }
 
         redirect('posting');
-        
     }
 
     public function toggle($getId)
@@ -85,5 +122,4 @@ class Posting extends CI_Controller
         }
         redirect('posting');
     }
-  
 }
