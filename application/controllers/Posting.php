@@ -16,7 +16,7 @@ class Posting extends CI_Controller
     {
         $data = [
             'title'       => 'Posting',
-            'berita'    => $this->db->get('berita ')->result_array()
+            'berita'    => $this->base->getBerita()->result()
         ];
         $this->template->load('template', 'posting/data', $data);
     }
@@ -39,42 +39,58 @@ class Posting extends CI_Controller
         $this->template->load('template', 'posting/add', $data);
     }
 
+
     public function prosesAdd()
     {
+
         $post = $this->input->post(null, true);
 
+        $config['upload_path']          = './assets/uploads/file/';
+        $config['allowed_types']        = 'jpg|jpeg|png|gif|';
+        $config['max_size']             = 10000;
+        $config['max_width']            = 10000;
+        $config['max_height']           = 10000;
+        $config['file_name']            = 'foto-' . date('ymd') . '-' . substr(md5(rand()), 0, 6);
+
         var_dump($post);
+        $this->load->library('upload', $config);
 
-        // $gambar = $this->upload->data();
-        // $gambar =  $gambar['file_name'];
-        $judul = $this->input->post('judul');
-        $seo = slugify($this->input->post('judul'));
-        $konten = $this->input->post('konten');
-        $featured = $this->input->post('featured');
-        $id_user = userdata('id_user');
-        $id_kartikel = $this->input->post('kategori');
-        $isActive = 1;
-        $date = date('Y-m-d');
+        if (@$_FILES['gambarFile']['name'] != null) {
+            if ($this->upload->do_upload('gambarFile')) {
+                $post['gambarFile'] = $this->upload->data('file_name');
+                $post['tipe_file'] = $this->upload->data('file_type');
 
-        // $params = [
-        //     'judul' => $judul,
-        //     'seo_judul' => $seo,
-        //     'konten' => $konten,
-        //     'featured' => $featured,
-        //     'gambar_name' => $gambar,
-        //     'id_kartikel' => $id_kartikel,
-        //     'isActive' => $isActive,
-        //     'user' => $id_user,
-        //     'date' => $date
-        // ];
+                $params = [
+                    'title' => $post['judul'],
+                    'seo_title' => slugify($post['judul']),
+                    'konten' => $post['konten'],
+                    'gambar_name' => $post['gambarFile'],
+                    'featured' => $post['featured'],
+                    'user_id' => userdata('id_user'),
+                    'kategori_id' => $post['kategori'],
+                    'isActive' => 1,
+                    'viewers'   => 1,
+                    'date' => date('Y-m-d')
+                ];
 
-        // $this->db->add('berita', $params);
-        
-        // if ($this->db->affected_rows() > 0) {
-        //     set_pesan('Data berhasil di');
-        // } else {
-        //     set_pesan('Terjadi Kesalahan saat menyimpan', FALSE);
-        // }
+                $this->base->add('berita', $params);
+
+                if ($this->db->affected_rows() > 0) {
+                    set_pesan('Berita berhasil di tambahkan');
+                } else {
+                    set_pesan('Gagal menyimpan Berita, silahkan coba kembali', FALSE);
+                }
+
+            } else {
+               echo 'error';
+            }
+        } else {
+           echo 'Testing';
+        }
+
+        redirect('posting');
+
+        // redirect('Loker');
     }
 
     public function edit($id)

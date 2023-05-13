@@ -25,10 +25,25 @@ class Base_model extends CI_Model
         return $this->db->get('user')->result_array();
     }
 
-    public function get($table)
+    public function get($table, $join = null, $join2 = null)
     {
+        if ($join != null) {
+            $this->db->join($join, $join2);
+        }
         $sql = $this->db->get($table);
         return $sql;
+    }
+
+    public function getBerita($where = null)
+    {
+        $this->db->select('*');
+        $this->db->from('berita');
+        if ($where != null) {
+            $this->db->where($where);
+        }
+        $this->db->join('kategori', 'kategori.id_kategori = berita.kategori_id');
+
+        return $this->db->get();
     }
 
     public function count($table)

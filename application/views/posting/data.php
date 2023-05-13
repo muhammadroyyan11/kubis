@@ -19,8 +19,9 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Judul Artikel</th>
-                                        <th>F</th>
+                                        <th>Featured</th>
                                         <th>Kategori</th>
+                                        <th>Jumlah Pembaca</th>
                                         <th>Tgl Upload</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -30,13 +31,22 @@
                                     foreach ($berita as $key => $data) { ?>
                                         <tr>
                                             <td><?= $no++; ?></td>
-                                            <td><?= $data->judul ?></td>
-                                            <td><?= $data->featured ?></td>
-                                            <td><?= $data->nama ?></td> <!-- Nama Kategori -->
+                                            <td><?= $data->title ?></td>
+                                            <td>
+                                                <?php 
+                                                    if ($data->featured != 0) {
+                                                        echo 'Ya';
+                                                    } else {
+                                                        echo 'Tidak';
+                                                    }
+                                                ?> 
+                                            </td>
+                                            <td><?= $data->nama_kategori ?></td> <!-- Nama Kategori -->
+                                            <td><?= $data->viewers?> Pembaca</td>
                                             <td><?= $data->date ?></td>
                                             <th>
-                                                <a href="<?= base_url('admin/posting/edit/') . $data->id_posting ?>" class="btn btn-circle btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('admin/posting/delete/') . $data->id_posting ?>" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                                <a href="<?= base_url('posting/edit/') . $data->id_berita ?>" class="btn btn-circle btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('posting/delete/') . $data->id_berita ?>" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                             </th>
                                         </tr>
                                     <?php } ?>
