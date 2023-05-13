@@ -116,23 +116,16 @@
                 </li>
                 <li class=" nav-item"><a href="#"><i class="feather icon-edit-2"></i><span class="menu-title" data-i18n="Data List">Main Menu</span></a>
                     <ul class="menu-content">
-                        <li <?= $this->uri->segment(1) == 'slide' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('slide') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Content slide</span></a>
-                        </li>
+                        
                         <li <?= $this->uri->segment(1) == 'as' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="data-thumb-view.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Contact</span></a>
                         </li>
                     </ul>
                 </li>
-                <li class=" nav-item"><a href="#"><i class="feather icon-book-open"></i><span class="menu-title" data-i18n="Data List">Master Data</span></a>
+                <li class=" nav-item"><a href="#"><i class="feather icon-map"></i><span class="menu-title" data-i18n="Data List">Master Data</span></a>
                     <ul class="menu-content">
                         <li <?= $this->uri->segment(1) == 'kategori' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('kategori') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Kategori Berita</span></a>
                         </li>
                         <li <?= $this->uri->segment(1) == 'tags' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('tags') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Tags</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" nav-item"><a href="#"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Data List">Data Barang</span></a>
-                    <ul class="menu-content">
-                        <li <?= $this->uri->segment(1) == 'barang' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('barang') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Barang</span></a>
                         </li>
                     </ul>
                 </li>
@@ -141,18 +134,6 @@
                         <li <?= $this->uri->segment(1) == 'kartikel' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('kartikel') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Kategori Artikel</span></a>
                         </li>
                         <li <?= $this->uri->segment(1) == 'posting' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('posting') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Posting Artikel</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" nav-item"><a href="#"><i class="feather icon-map"></i><span class="menu-title" data-i18n="Data List">Outlet</span></a>
-                    <ul class="menu-content">
-                        <li <?= $this->uri->segment(1) == 'outlet' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('outlet') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Data Outlet</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" nav-item"><a href="#"><i class="feather icon-music"></i><span class="menu-title" data-i18n="Data List">Event</span></a>
-                    <ul class="menu-content">
-                        <li <?= $this->uri->segment(1) == 'event' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('event') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Data Event</span></a>
                         </li>
                     </ul>
                 </li>

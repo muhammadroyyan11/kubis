@@ -32,7 +32,7 @@ class Posting extends CI_Controller
 
         $data = [
             'title'         => 'Add berita',
-            'kategori'      => $this->base_model->get('kategori')->result(),
+            'kategori'      => $this->base_model->getTable('kategori', ['isActive' => 1])->result(),
             'input'         => $input
         ];
 

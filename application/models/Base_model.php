@@ -25,13 +25,24 @@ class Base_model extends CI_Model
         return $this->db->get('user')->result_array();
     }
 
-    public function get($table, $join = null, $join2 = null)
+    public function get($table, $where = null)
     {
-        if ($join != null) {
-            $this->db->join($join, $join2);
+        if ($where != null) {
+            $this->db->where($where);
         }
         $sql = $this->db->get($table);
         return $sql;
+    }
+
+    public function getTable($table, $where = null)
+    {
+        $this->db->select('*');
+        $this->db->from($table);
+        if ($where != null) {
+            $this->db->where($where);
+        }
+
+        return $this->db->get();
     }
 
     public function getBerita($where = null)
