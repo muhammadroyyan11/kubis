@@ -61,10 +61,38 @@
                                         <span>Featured Artikel</span>
                                     </div>
                                     <div class="col-md-8">
-                                        <select type="password" name="featured" value="<?= set_value('featured') ?>" class="form-control">
+                                        <select name="featured" value="<?= set_value('featured') ?>" class="form-control">
                                             <option value="">- Pilih -</option>
                                             <option value="Ya" <?= set_value('featured') == 1 ? "selected" : null ?>>Ya</option>
                                             <option value="Tidak" <?= set_value('featured') == 2 ? "selected" : null ?>>Tidak</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <span>Trending Artikel</span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select name="thread" value="<?= set_value('thread') ?>" class="form-control">
+                                            <option value="">- Pilih -</option>
+                                            <option value="Ya" <?= set_value('thread') == 1 ? "selected" : null ?>>Ya</option>
+                                            <option value="Tidak" <?= set_value('thread') == 2 ? "selected" : null ?>>Tidak</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <span>Editor Choise</span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select name="choise" value="<?= set_value('choise') ?>" class="form-control">
+                                            <option value="">- Pilih -</option>
+                                            <option value="Ya" <?= set_value('choise') == 1 ? "selected" : null ?>>Ya</option>
+                                            <option value="Tidak" <?= set_value('choise') == 2 ? "selected" : null ?>>Tidak</option>
                                         </select>
                                     </div>
                                 </div>
