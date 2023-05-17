@@ -106,13 +106,14 @@ class Berita_model extends CI_Model
 
     public function getMostPopular()
     {
+        $this->db->select('*');
         $this->db->from('berita');
         $this->db->join('kategori', 'kategori.id_kategori = berita.kategori_id');
-        $this->db->where('thread', 'Y');
+        // $this->db->where('berita.date', date('Y-m-d'));
         $this->db->where('berita.isActive', 1);
-        $this->db->order_by('berita.id_berita', 'desc');
+        $this->db->order_by('berita.viewers', 'desc');
         $this->db->limit(1);
-        return $this->db->get()->result();
+        return $this->db->get();
     }
 
     public function paginate($page)

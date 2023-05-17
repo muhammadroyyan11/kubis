@@ -1,5 +1,5 @@
 <!--================Home Banner Area =================-->
-<section class="banner_area">
+<!-- <section class="banner_area">
    <div class="banner_inner d-flex align-items-center" style="background-image: url(<?= base_url('images/banner/') ?>)">
       <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
       <div class="container">
@@ -12,11 +12,11 @@
          </div>
       </div>
    </div>
-</section>
-<!--================End Home Banner Area =================-->
+</section> -->
+================End Home Banner Area =================
 
 <!--================News Area =================-->
-<section class="news_area single-post-area mt-5">
+<section class="news_area single-post-area mt-5 mt-100">
    <div class="container">
       <div class="row">
          <div class="col-lg-8">

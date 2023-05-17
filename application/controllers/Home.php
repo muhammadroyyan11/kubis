@@ -19,7 +19,7 @@ class Home extends CI_Controller
 
         $data['featured']    = $this->berita->getFeatured();
         $data['choice']      = $this->berita->getChoice();
-        $data['popular']     = $this->berita->getMostPopular();
+        $data['popular']     = $this->berita->getMostPopular()->row();
         $data['trending']    = $this->berita->getThread();
         $data['lastNews']    = $this->berita->getLastNews();
         $data['about']       = $this->base->get('about')->row();

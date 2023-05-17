@@ -54,6 +54,16 @@
 	<script src=" <?= base_url() ?>assets/front/js/jquery.ajaxchimp.min.js"></script>
 	<script src=" <?= base_url() ?>assets/front/js/mail-script.js"></script>
 	<script src=" <?= base_url() ?>assets/front/js/theme.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			//autocomplete start
+			$("id_berita").autocomplete({
+				source: "<?php base_url()?>search/keyword",
+				minLenght: 1
+			});
+		});
+	</script>
 </body>
 
 </html>

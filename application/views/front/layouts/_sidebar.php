@@ -2,25 +2,28 @@
    <div class="right_sidebar">
 
       <aside class="r_widgets news_widgets">
+         
+      <?php
+      if ($popular != null) { ?>
          <div class="main_title2">
             <h2>Most Popular News</h2>
          </div>
-         <?php foreach ($popular as $key => $data) { ?>
-            <div class="choice_item">
-               <img class="img-fluid" src="<?= base_url("assets/uploads/file/$data->gambar_name") ?>" alt="">
-               <div class="choice_text">
-                  <div class="date">
-                     <a class="gad_btn" href="<?= base_url("blog/category/$data->slug") ?>"><?= $data->nama_kategori ?></a>
-                     <a href="#" class="float-right"><i class="fa fa-calendar" aria-hidden="true"></i><?= mediumdate_indo($data->date) ?></a>
-                  </div>
-                  <a href="<?= base_url("blog/read/$data->seo_title") ?>">
-                     <h4><?= $data->title ?></h4>
-                  </a>
-                  <p><?= character_limiter($data->konten, 150) ?></p>
+         <div class="choice_item">
+            <img class="img-fluid" src="<?= base_url("assets/uploads/file/$popular->gambar_name") ?>" alt="">
+            <div class="choice_text">
+               <div class="date">
+                  <a class="gad_btn" href="<?= base_url("blog/category/$popular->slug") ?>"><?= $popular->nama_kategori ?></a>
+                  <a href="#" class="float-right"><i class="fa fa-calendar" aria-hidden="true"></i><?= mediumdate_indo($popular->date) ?></a>
                </div>
+               <a href="<?= base_url("blog/read/$popular->seo_title") ?>">
+                  <h4><?= $popular->title ?></h4>
+               </a>
+               <p><?= character_limiter($popular->konten, 150) ?></p>
             </div>
-         <?php } ?>
-
+         </div>
+      <?php
+      }
+      ?>
          <div class="main_title2 mb-5">
             <h2>Trending Now</h2>
          </div>

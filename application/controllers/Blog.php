@@ -22,7 +22,7 @@ class Blog extends CI_Controller
         $data['navbar']      = $this->berita->getKategori();
         $data['category']    = $this->berita->getKategori();
         $data['post']        = $this->berita->getAllPosting($page);
-        $data['popular']     = $this->berita->getMostPopular();
+        $data['popular']     = $this->berita->getMostPopular()->row();
         $data['about']       = $this->base->get('about')->row();
         $data['trending']    = $this->berita->getThread();
         $data['category']    = $this->berita->getKategori();
@@ -44,7 +44,7 @@ class Blog extends CI_Controller
         $data['title']       = 'Blog';
         $data['category']    = $this->berita->getKategori();
         $data['post']        = $this->berita->getPostingByCategory($category, $page);
-        $data['popular']     = $this->berita->getMostPopular();
+        $data['popular']     = $this->berita->getMostPopular()->row();
         $data['trending']    = $this->berita->getThread();
         $data['category']    = $this->berita->getKategori();
         $data['sosmed']      = $this->base_model->get('sosmed')->result();
@@ -80,7 +80,7 @@ class Blog extends CI_Controller
             $data['title']       = $row->title;
             // $data['favicon']     = $this->identity->getIdentity();
             // $data['banner']      = $this->banner->getBanner();
-            $data['popular']     = $this->berita->getMostPopular();
+            $data['popular']     = $this->berita->getMostPopular()->row();
             $data['trending']    = $this->berita->getThread();
             $data['about']       = $this->base->get('about')->row();
             $data['category']    = $this->berita->getKategori();

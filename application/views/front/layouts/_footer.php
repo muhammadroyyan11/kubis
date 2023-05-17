@@ -39,11 +39,11 @@
                <div class="f_title">
                   <h3>Social Networks</h3>
                </div>
-               <div class="col-lg-4 col-md-4 footer-social icon mx-auto">
+               <!-- <div class="col-lg-4 col-md-4 footer-social icon mx-auto">
                   <?php foreach ($sosmed as $key => $data) { ?>
                      <a href="<?= $data->link ?>" target="_blank"><i class="fa <?= $data->icon ?>"></i></a>
                   <?php } ?>
-               </div>
+               </div> -->
             </div>
          </div>
       </div>
