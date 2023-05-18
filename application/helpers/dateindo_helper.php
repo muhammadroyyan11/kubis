@@ -6,7 +6,7 @@ function mediumdate_indo($tgl){
    $tanggal = $pecah[2];
    $bulan = medium_bulan($pecah[1]);
    $tahun = $pecah[0];
-   return $bulan . ' ' . $tanggal . ', ' . $tahun;
+   return $tanggal . ' ' . $bulan . ' ' . $tahun;
    // return $tanggal.'-'.$bulan.'-'.$tahun;
 }
 

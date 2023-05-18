@@ -26,7 +26,7 @@ class Blog extends CI_Controller
         $data['about']       = $this->base->get('about')->row();
         $data['trending']    = $this->berita->getThread();
         $data['category']    = $this->berita->getKategori();
-        $data['sosmed']      = $this->base_model->get('sosmed')->result();
+        // $data['sosmed']      = $this->base_model->get('sosmed')->result();
 
         $data['total_rows']  = $this->berita->countPosting();
         $data['pagination']  = $this->berita->makePagination(
@@ -90,6 +90,42 @@ class Blog extends CI_Controller
         } else {
             redirect(base_url('home'));
         }
+    }
+
+    public function search()
+    {
+        $post = $this->input->post(null, TRUE);
+
+        $data['post'] = $this->berita->keyword()->result();
+
+        $data['navbar']      = $this->berita->getKategori();
+        $data['category']    = $this->berita->getKategori();
+        $data['popular']     = $this->berita->getMostPopular()->row();
+        $data['about']       = $this->base->get('about')->row();
+        $data['trending']    = $this->berita->getThread();
+        $data['category']    = $this->berita->getKategori();
+        // $data['sosmed']      = $this->base_model->get('sosmed')->result();
+
+        $data['total_rows']  = $this->berita->countPosting();
+        // $data['pagination']  = $this->berita->makePagination(
+        //     base_url('search'),
+        //     2,
+        //     $data['total_rows']
+        // );
+        $data['page'] = 'keyword';
+
+        $this->load->view('front/layouts/app', $data);
+    }
+
+    public function keyword()
+    {
+        $search = $this->base->get('kategori')->result();
+
+        foreach ($search as $key => $data) {
+            $arr_search[] = $data->nama_kategori;
+        }
+
+        echo json_encode($arr_search);
     }
 }
 

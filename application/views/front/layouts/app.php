@@ -23,6 +23,11 @@
 	<!-- main css -->
 	<link href="<?= base_url() ?>assets/front/css/style.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
+	<script src=" <?= base_url() ?>assets/front/js/jquery-3.2.1.min.js"></script>
+
+	<!-- <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet"> -->
+	<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
+	<!-- <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> -->
 </head>
 
 <body>
@@ -41,7 +46,6 @@
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src=" <?= base_url() ?>assets/front/js/jquery-3.2.1.min.js"></script>
 	<script src=" <?= base_url() ?>assets/front/js/popper.js"></script>
 	<script src=" <?= base_url() ?>assets/front/js/bootstrap.min.js"></script>
 	<script src=" <?= base_url() ?>assets/front/js/stellar.js"></script>
@@ -55,14 +59,20 @@
 	<script src=" <?= base_url() ?>assets/front/js/mail-script.js"></script>
 	<script src=" <?= base_url() ?>assets/front/js/theme.js"></script>
 
-	<script type="text/javascript">
-		$(function(){
-			//autocomplete start
-			$("id_berita").autocomplete({
-				source: "<?php base_url()?>search/keyword",
-				minLenght: 1
+	<script>
+		$(function() {
+			var availableTutorials = [
+				"ActionScript",
+				"Bootstrap",
+				"C",
+				"C++",
+			];
+			$("#id_berita").autocomplete({
+				source: availableTutorials
 			});
 		});
+
+		
 	</script>
 </body>
 

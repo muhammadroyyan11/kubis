@@ -90,6 +90,7 @@ class Berita_model extends CI_Model
     {
         $this->db->from('berita');
         $this->db->join('kategori', 'kategori.id_kategori = berita.kategori_id');
+        $this->db->join('user', 'user.id_user = berita.user_id');
         $this->db->where('berita.isActive', 1);
         $this->db->order_by('berita.id_berita', 'desc');
         $this->db->limit(4);
@@ -173,6 +174,7 @@ class Berita_model extends CI_Model
     {
         $this->db->from('berita');
         $this->db->join('kategori', 'kategori.id_kategori = berita.kategori_id');
+        $this->db->join('user', 'user.id_user = berita.user_id');
         $this->db->where('berita.isActive', 1);
         $this->paginate($page);
         $this->db->order_by('berita.id_berita', 'desc');

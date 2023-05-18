@@ -86,7 +86,37 @@
                <div class="main_title2">
                   <h2>Last News</h2>
                </div>
-               <div class="latest_news">
+               <div class="magazine-view">
+                  <?php foreach ($lastNews as $ln) : ?>
+                     <div class='fbt_magazine-blog-post fbt-index-post row align-items-center justify-content-between'>
+                        <div class='col-xl-6 col-md-5'>
+                           <div class='fbt-post-thumbnail'>
+                              <a href='#'>
+                                 <img alt='<?= $ln->title ?>' class='post-thumbnail lazyloaded' src='<?= base_url() ?>assets/uploads/file/<?= $ln->gambar_name ?>'>
+                              </a>
+                           </div>
+                        </div>
+                        <div class='col-xl-6 col-md-7'>
+                           <div class='fbt-post-caption mt-3 mt-md-0'>
+                              <a href="<?= base_url("blog/category/$ln->slug") ?>" class="gad_btn">Komunitas</a>
+                              <div class="choice_text">
+                                 <a href='<?= base_url("blog/read/$ln->seo_title") ?>'>
+                                    <h4><?= $ln->title ?></h4>
+                                 </a>
+                              </div>
+                              <div class='post-meta mb-2'>
+                                 <span class='post-author'><?= $ln->nama_lengkap ?></span> - 
+                                 <span class='post-date published'><?= mediumdate_indo($ln->date) ?></span>
+                              </div>
+                              <p class='post-excerpt'>
+                              <p><?= character_limiter($ln->konten, 100) ?></p>
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  <?php endforeach ?>
+               </div>
+               <!-- <div class="latest_news">
                   <?php foreach ($lastNews as $ln) : ?>
                      <div class="media">
                         <div class="d-flex">
@@ -108,7 +138,7 @@
                         </div>
                      </div>
                   <?php endforeach ?>
-               </div>
+               </div> -->
                <!-- End of Last News -->
 
                <div class="row mt-5">

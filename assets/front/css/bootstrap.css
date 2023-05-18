@@ -2886,7 +2886,28 @@ tbody.collapse.show {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 20rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+
+
+.dropdown-search {
+  position: absolute;
+  top: 100%;
+  right: 0;
   z-index: 1000;
   display: none;
   float: left;
@@ -3971,7 +3992,7 @@ tbody.collapse.show {
 
 .navbar-light .navbar-toggler {
   color: rgba(0, 0, 0, 0.5);
-  border-color: rgba(0, 0, 0, 0.1);
+  /* border-color: rgba(0, 0, 0, 0.1); */
 }
 
 .navbar-light .navbar-toggler-icon {

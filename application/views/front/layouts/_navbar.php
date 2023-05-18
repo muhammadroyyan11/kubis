@@ -51,10 +51,25 @@
          </ul> -->
          <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             <form class="form-inline">
-               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="id_berita" autocomplete="off">
                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
             </form>
+            <script>
+               $(function() {
+                  var availableTutorials = [
+                     "ActionScript",
+                     "Bootstrap",
+                     "C",
+                     "C++",
+                  ];
+                  $("#id_berita").autocomplete({
+                     source: availableTutorials
+                  });
+               });
+            </script>
          </ul>
+
+
       </div>
    </div>
 </nav>
