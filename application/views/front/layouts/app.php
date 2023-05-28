@@ -30,7 +30,7 @@
 	<!-- <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> -->
 </head>
 
-<body>
+<body class=" supreme-container">
 
 	<!--================ Navigation ================-->
 	<?php $this->load->view('front/layouts/_navbar') ?>

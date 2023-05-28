@@ -25,7 +25,7 @@
                                         <span>Gambar Utama</span>
                                     </div>
                                     <div class="col-md-8">
-                                        <input type="file" name="gambarFile" class="file">
+                                        <input type="file" name="gambarFile" class="file" require>
                                     </div>
                                 </div>
                             </div>

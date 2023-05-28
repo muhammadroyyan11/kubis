@@ -45,20 +45,22 @@ class Posting extends CI_Controller
 
         $post = $this->input->post(null, true);
 
-        $config['upload_path']          = './assets/uploads/file/';
+        $config['upload_path']          = './assets/uploads/mentah/';
         $config['allowed_types']        = 'jpg|jpeg|png|gif|';
-        $config['max_size']             = 10000;
-        $config['max_width']            = 10000;
+        // $config['max_size']             = 10000;
+        // $config['max_width']            = 10000;
         $config['max_height']           = 10000;
         $config['file_name']            = 'foto-' . date('ymd') . '-' . substr(md5(rand()), 0, 6);
 
-        var_dump($post);
+        // var_dump($post);
         $this->load->library('upload', $config);
 
         if (@$_FILES['gambarFile']['name'] != null) {
             if ($this->upload->do_upload('gambarFile')) {
                 $post['gambarFile'] = $this->upload->data('file_name');
                 $post['tipe_file'] = $this->upload->data('file_type');
+
+                $this->resizeImage($post['gambarFile']);
 
                 $params = [
                     'title' => $post['judul'],
@@ -80,17 +82,34 @@ class Posting extends CI_Controller
                 } else {
                     set_pesan('Gagal menyimpan Berita, silahkan coba kembali', FALSE);
                 }
-
             } else {
-               echo 'error';
+                echo 'error';
             }
         } else {
-           echo 'Testing';
+            echo 'Testing';
         }
 
         redirect('posting');
+    }
 
-        // redirect('Loker');
+    public function resizeImage($file_name)
+    {
+        $source = FCPATH . './assets/uploads/mentah/' .  $file_name;
+        $dest   = FCPATH . './assets/uploads/file/';
+
+        $config['image_library']    = 'gd2';
+        $config['source_image']     = $source;
+        $config['new_image']        = $dest;
+        $config['maintain_ratio']   = TRUE;
+        $config['width']            = 936;
+        $config['height']           = 624;
+
+        $this->load->library('image_lib', $config);
+        
+
+        if (!$this->image_lib->resize()) {
+            echo $this->image_lib->display_errors();
+        }
     }
 
     public function edit($id)
@@ -114,7 +133,7 @@ class Posting extends CI_Controller
 
     public function delete($id)
     {
-        $this->base->del('posting', ['id_posting' => $id]);
+        $this->base->del('berita', ['id_berita' => $id]);
 
         if ($this->db->affected_rows() > 0) {
             set_pesan('Data berhasil dihapus');

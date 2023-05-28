@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light navbar-expand-lg navbar-light bg-light fixed-top home">
    <div class="container">
       <a class="d-flex w-50" href="<?= site_url('home') ?>">
-         <img src="<?= base_url() ?>assets/img/logo.png" width="100" height="40" class="d-inline-block align-top" alt="" style="">
+         <img src="<?= base_url() ?>assets/img/logo.png" width="140" height="65" class="d-inline-block align-top" alt="" style="">
          <!-- <h3>Kubis</h3> -->
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
@@ -50,10 +50,10 @@
             ?>
          </ul> -->
          <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-            <form class="form-inline">
-               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="id_berita" autocomplete="off">
-               <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-            </form>
+            <!-- <form class="form-inline"> -->
+            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="id_berita" autocomplete="off"> -->
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true" data-toggle="modal" data-target="#exampleModal"></i></button>
+            <!-- </form> -->
             <script>
                $(function() {
                   var availableTutorials = [
@@ -73,3 +73,25 @@
       </div>
    </div>
 </nav>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <input type="text" placeholder="search here" name="" id="" autofocus>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            Search Suggest
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+         </div>
+      </div>
+   </div>
+</div>
